@@ -30,6 +30,8 @@ frontend)
   echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>Installing Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
   yum install nginx -y
 Status_Check
+systemctl enable nginx
+systemctl start nginx
 
    echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>>Starting Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
   ;;
