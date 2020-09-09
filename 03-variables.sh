@@ -14,3 +14,4 @@ echo index7=${A[7]}
 
 
 Date=$(date +%F)
+echo -e "Welcome to Devops Learning\nTodays date is $Date"
