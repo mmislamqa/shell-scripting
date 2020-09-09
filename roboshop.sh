@@ -7,7 +7,7 @@ case $USER_ID in
   echo "Start Installation"
   ;;
 *)
-  echo "You should be a root user to perform this script"
+  echo "\e[31mYou should be a root user to perform this script\e[0m"
   exit
 esac
 
