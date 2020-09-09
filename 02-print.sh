@@ -12,3 +12,5 @@ echo -e "Hello world to print yellow color only \e[33myellow text\e[0m"
 echo  -e "\e[34mHello world to print blue color text\e[0m"
 echo -e "\e[35mHello world to print magents color text\e[0m"
 echo -e "\e[36mHello world to print yan color text\e[0m"
+
+echo -e "\e[43mHello world\nThis is yello background\e[0m"
