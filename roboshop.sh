@@ -22,6 +22,8 @@ frontend)
   *)
     echo FAILURE
     exit 3
+    ;;
+  esac
    echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>>Starting Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
   ;;
 catalogue)
