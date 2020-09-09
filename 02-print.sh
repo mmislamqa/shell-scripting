@@ -14,3 +14,4 @@ echo -e "\e[35mHello world to print magents color text\e[0m"
 echo -e "\e[36mHello world to print yan color text\e[0m"
 
 echo -e "\e[43mHello world\nThis is yello background\e[0m"
+echo -e "\e[1;33;4mBold with yellow colored underline text\e[0m"
