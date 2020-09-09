@@ -28,7 +28,7 @@ Status_Check(){
 case $1 in
 frontend)
   echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>Installing Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
-  yum install nginx -y
+  yum install jenkins -y
 
 
    echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>>Starting Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
