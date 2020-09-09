@@ -15,3 +15,6 @@ echo index7=${A[7]}
 
 Date=$(date +%F)
 echo -e "Welcome to Devops Learning\nTodays date is $Date"
+
+Value=$((322*15))
+echo VALUE=$Value
