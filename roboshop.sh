@@ -27,5 +27,6 @@ cart)
 *)
   echo "Invalid Input, Please enter following input"
   echo "Usage: $0 frontend|catalogue|cart"
+  exit 2
   ;;
 esac
