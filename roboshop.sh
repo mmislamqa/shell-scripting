@@ -15,6 +15,13 @@ case $1 in
 frontend)
   echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>Installing Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
   yum install nginx -y
+  case $? in
+  0)
+    echo SUCCESS
+    ;;
+  *)
+    echo FAILURE
+    exit 3
    echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>>Starting Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
   ;;
 catalogue)
