@@ -10,12 +10,9 @@ case $USER_ID in
   echo -e "\e[1;31mYou should be a root user to perform this script\e[0m"
   exit 1
 esac
-
-case $1 in
-frontend)
-  echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>Installing Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
-  yum install jenkins -y
-  case $? in
+#Some Function
+Status_Check(){
+   case $? in
   0)
     echo SUCCESS
     ;;
@@ -24,6 +21,16 @@ frontend)
     exit 3
     ;;
   esac
+}
+
+
+#Manin Program
+case $1 in
+frontend)
+  echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>Installing Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
+  yum install nginx -y
+
+
    echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>>Starting Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
   ;;
 catalogue)
