@@ -11,6 +11,9 @@ case $USER_ID in
   exit 1
 esac
 #Some Function
+Print(){
+  echo -e "\e[33m>>>>>>>>>>>>>>>>>>> $1 <<<<<<<<<<<<<<<<<<<<<<<\e[0m"
+}
 Status_Check(){
    case $? in
   0)
@@ -27,13 +30,24 @@ Status_Check(){
 #Manin Program
 case $1 in
 frontend)
-  echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>Installing Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
+ Print "Installing Nginx"
   yum install nginx -y
 Status_Check
+
+Status_Check
+Print "Downloading Frontend App"
+curl -s -L -o /tmp/frontend.zip "https://dev.azure.com/DevOps-Batches/ce99914a-0f7d-4c46-9ccc-e4d025115ea9/_apis/git/repositories/db389ddc-b576-4fd9-be14-b373d943d6ee/items?path=%2F&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=zip&api-version=5.0&download=true"
+Status_Check
+cd /usr/share/nginx/html
+rm -rf *
+Print "Extracting Frontend Achives"
+mv static/* .
+rm -rf static README.md
+mv localhost.conf /etc/nginx/nginx.conf
+Print "Installing Nginx"
 systemctl enable nginx
 systemctl start nginx
-
-   echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>>Starting Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
+Status_Check
   ;;
 catalogue)
   echo Installing catalogue
