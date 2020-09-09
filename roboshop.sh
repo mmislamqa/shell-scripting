@@ -13,8 +13,9 @@ esac
 
 case $1 in
 frontend)
-  echo Installing Frontend
+  echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>Installing Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
   yum install nginx -y
+   echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>>Starting Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
   ;;
 catalogue)
   echo Installing catalogue
