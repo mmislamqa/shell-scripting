@@ -13,4 +13,8 @@ cart)
   echo Installing cart
   echo Completed Installing cart
   ;;
+*)
+  echo "Invalid Input, Please enter following input"
+  echo "Usage: $0 frontend|catalogue|cart"
+  ;;
 esac
