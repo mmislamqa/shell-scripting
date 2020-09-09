@@ -14,10 +14,10 @@ esac
 Status_Check(){
    case $? in
   0)
-    echo SUCCESS
+    echo -e "\e[1;33mSUCCESS\e[0m"
     ;;
   *)
-    echo FAILURE
+    echo -e "\e[1;33mFAILURE\e[0m"
     exit 3
     ;;
   esac
@@ -28,7 +28,7 @@ Status_Check(){
 case $1 in
 frontend)
   echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>Installing Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
-  yum install jenkins -y
+  yum install nginx -y
 Status_Check
 
    echo -e "\e[31m>>>>>>>>>>>>>>>>>>>>>>>>>>Starting Nginx<<<<<<<<<<<<<<<<<<<<<<<<<<<<\e[0m"
