@@ -32,6 +32,14 @@ Setup_NodeJS(){
   Print "Added Application User"
   useradd roboshop
   Status_Check
+  id roboshop
+  case $? in
+  1)
+    Print "Add Application User"
+    useradd roboshop
+    Status_Check
+    ;;
+  esac
 
 }
 
