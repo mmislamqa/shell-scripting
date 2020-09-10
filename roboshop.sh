@@ -1,6 +1,7 @@
 #!/bin/bash
 
 USER_ID=$(id -u)
+DNS_DOMAIN_NAME="devops88.tk"
 
 case $USER_ID in
 0)
@@ -49,6 +50,15 @@ Setup_NodeJS(){
   npm --unsafe-perm install
   Status_Check
   chown roboshop:roboshop /home/roboshop -R
+  Print "Setup catalogue service"
+  mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+  sed -i -e "s/localhost/mongodb.${DNS_DOMAIN_NAME}/" /etc/systemd/system/catalogue.service
+  Status_Check
+  Print "Start catalogue Service"
+  systemctl daemon-reload
+  systemctl start catalogue
+  systemctl enable catalogue
+  Status_Check
 
 
 
