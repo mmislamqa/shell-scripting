@@ -50,6 +50,7 @@ systemctl enable nginx
 systemctl start nginx
 Status_Check
   ;;
+
 catalogue)
   echo Installing catalogue
   echo Completed Installing catalogue
@@ -58,9 +59,24 @@ cart)
   echo Installing cart
   echo Completed Installing cart
   ;;
+mongodb)
+ echo '[mongodb-org-4.2]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mongodb.repo
+  Print "Installing MongoDB"
+  yum install -y mongodb-org
+  Status_Check
+  Print "Update MongoDB Configuration"
+
+#  systemctl enable mongod
+#  systemctl start mongod
+  ;;
 *)
   echo "Invalid Input, Please enter following input"
-  echo "Usage: $0 frontend|catalogue|cart"
+  echo "Usage: $0 frontend|catalogue|cart|mongodb"
   exit 2
   ;;
 esac
