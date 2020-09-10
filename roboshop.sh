@@ -46,7 +46,7 @@ Setup_NodeJS(){
   unzip -o /tmp/catalogue.zip
   Status_Check
   Print "Install NodeJS Application"
-  npm install
+  npm --unsafe-perm install
   Status_Check
 
 
