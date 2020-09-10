@@ -48,6 +48,7 @@ Setup_NodeJS(){
   Print "Install NodeJS App Dependencies"
   npm --unsafe-perm install
   Status_Check
+  chown roboshop:roboshop /home/roboshop -R
 
 
 
