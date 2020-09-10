@@ -41,7 +41,7 @@ Setup_NodeJS(){
   curl -s -L -o /tmp/$1.zip "$2"
   Status_Check
   Print "Extracting Archive"
-  mkdir -P /home/roboshop/$1
+  mkdir -p /home/roboshop/$1
   cd /home/roboshop/$1
   unzip -o /tmp/catalogue.zip
   Status_Check
