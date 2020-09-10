@@ -82,7 +82,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mong
   Status_Check
   cd /tmp
   Print "Extracting Achives"
-  unzip mongodb.zip
+  unzip -o mongodb.zip
   Print "Load catalogue schema"
   mongo < catalogue.js
   Print "Load Users Schema"
