@@ -25,6 +25,15 @@ Status_Check(){
     ;;
   esac
 }
+Setup_NodeJS(){
+  Print "Installing NodeJS"
+  yum install nodejs make gcc-c++ -y
+  Status_Check
+  Print "Added Application User"
+  useradd roboshop
+  Status_Check
+
+}
 
 
 #Manin Program
@@ -53,6 +62,7 @@ Status_Check
 
 catalogue)
   echo Installing catalogue
+  Setup_NodeJS
   echo Completed Installing catalogue
   ;;
 cart)
