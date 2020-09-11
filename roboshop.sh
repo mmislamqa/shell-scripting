@@ -44,7 +44,7 @@ Setup_NodeJS(){
   Print "Extracting Archive"
   mkdir -p /home/roboshop/$1
   cd /home/roboshop/$1
-  unzip -o /tmp/ $1.zip
+  unzip -o /tmp/$1.zip
   Status_Check
   Print "Install NodeJS App Dependencies"
   npm --unsafe-perm install
