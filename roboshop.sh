@@ -53,6 +53,8 @@ Setup_NodeJS(){
   Print "Setup  $1 service"
   mv /home/roboshop/$1/systemd.service /etc/systemd/system/$1.service
   sed -i -e "s/MONGO_ENDPOINT/mongodb.${DNS_DOMAIN_NAME}/" /etc/systemd/system/$1.service
+  sed -i -e "s/REDIS_ENDPOINT/redis.${DNS_DOMAIN_NAME}/" /etc/systemd/system/$1.service
+  sed -i -e "s/CATALOGUE_ENDPOINT/catalogue.${DNS_DOMAIN_NAME}/" /etc/systemd/system/$1.service
   Status_Check
   Print "Start  $1 Service"
   systemctl daemon-reload
