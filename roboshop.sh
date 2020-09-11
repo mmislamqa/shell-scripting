@@ -44,20 +44,20 @@ Setup_NodeJS(){
   Print "Extracting Archive"
   mkdir -p /home/roboshop/$1
   cd /home/roboshop/$1
-  unzip -o /tmp/catalogue.zip
+  unzip -o /tmp/ $1.zip
   Status_Check
   Print "Install NodeJS App Dependencies"
   npm --unsafe-perm install
   Status_Check
   chown roboshop:roboshop /home/roboshop -R
-  Print "Setup catalogue service"
-  mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
-  sed -i -e "s/MONGO_ENDPOINT/mongodb.${DNS_DOMAIN_NAME}/" /etc/systemd/system/catalogue.service
+  Print "Setup  $1 service"
+  mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/ $1.service
+  sed -i -e "s/MONGO_ENDPOINT/mongodb.${DNS_DOMAIN_NAME}/" /etc/systemd/system/ $1.service
   Status_Check
-  Print "Start catalogue Service"
+  Print "Start  $1 Service"
   systemctl daemon-reload
-  systemctl start catalogue
-  systemctl enable catalogue
+  systemctl start  $1
+  systemctl enable $1
   Status_Check
 
 
