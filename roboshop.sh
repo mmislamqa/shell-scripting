@@ -51,7 +51,7 @@ Setup_NodeJS(){
   Status_Check
   chown roboshop:roboshop /home/roboshop -R
   Print "Setup  $1 service"
-  mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/$1.service
+  mv /home/roboshop/$1/systemd.service /etc/systemd/system/$1.service
   sed -i -e "s/MONGO_ENDPOINT/mongodb.${DNS_DOMAIN_NAME}/" /etc/systemd/system/$1.service
   Status_Check
   Print "Start  $1 Service"
