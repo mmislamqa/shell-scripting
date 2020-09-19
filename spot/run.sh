@@ -7,7 +7,7 @@ create|apply)
   ;;
 destroy|delete)
   terraform init
-  terraform apply -auto-approve
+  terraform destroy -auto-approve
   ;;
 *)
   echo  "Usage $0 : create | delete"
