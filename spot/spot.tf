@@ -65,7 +65,7 @@ resource "aws_security_group" "aa" {
   }
 
   tags = {
-    Name = "aa"
+    Name = "frontend", "catalogue", "cart", "user", "shipping", "payment", "mongodb", "mysql", "rabbitmq", "redis"
   }
 }
 
