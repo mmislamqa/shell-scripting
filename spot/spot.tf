@@ -73,7 +73,7 @@ resource "aws_route53_record" "records" {
   count                       = length(var.apps)
   name                        = element(var.apps, count.index)
   type                        = "A"
-  zone_id                     = "Z020952727UTZSZU8899Q" // Update this as per your domain
+  zone_id                     = "Z014226331ZV7R6WUJC6P" // Update this as per your domain
   ttl                         = 300
   records                     = [element(aws_spot_instance_request.cheap_worker.*.private_ip, count.index)]
 }
