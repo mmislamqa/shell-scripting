@@ -86,6 +86,7 @@ unzip /tmp/frontend.zip
 mv static/* .
 rm -rf static README.md
 mv localhost.conf /etc/nginx/nginx.conf
+sed -i -e '/^#/ d' /etc/nginx/nginx.conf
 Status_Check
 Print "Installing Nginx"
 systemctl enable nginx
