@@ -87,7 +87,8 @@ mv static/* .
 rm -rf static README.md
 mv localhost.conf /etc/nginx/nginx.conf
 sed -i -e '/^#/ d' /etc/nginx/nginx.conf
-sed -i -e "/localhost/ a \ \n\tlocation /test { \n\t}" /etc/nginx/nginx.conf
+for app in catalogue cart user shipping payment
+sed -i -e "/localhost/ a \ \n\tlocation /api/$app { \n\t \proxy_pass http:$app.$DNS_DOMAIN_NAME:8000; \n\t}" /etc/nginx/nginx.conf
 Status_Check
 Print "Installing Nginx"
 systemctl enable nginx
