@@ -133,6 +133,7 @@ redis)
   Print "Install redis"
   yum install redis -y
   Status_Check
+  ;;
 
 mongodb)
  echo '[mongodb-org-4.2]
