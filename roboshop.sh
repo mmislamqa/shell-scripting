@@ -85,16 +85,25 @@ Print "Extracting Frontend Achives"
 unzip /tmp/frontend.zip
 mv static/* .
 rm -rf static README.md
-mv localhost.conf /etc/nginx/nginx.conf
+mv template.conf /etc/nginx/nginx.conf
 sed -i -e '/^#/ d' /etc/nginx/nginx.conf
-for app in catalogue cart user shipping payment; do
-sed -i -e "/localhost/ a \ \n\tlocation /api/$app { \n\t \proxy_pass http:$app.$DNS_DOMAIN_NAME:8000; \n\t}" /etc/nginx/nginx.conf
-done
+#for app in catalogue cart user shipping payment; do
+#sed -i -e "/localhost/ a \ \n\tlocation /api/$app { \n\t \proxy_pass http:$app.$DNS_DOMAIN_NAME:8000; \n\t}" /etc/nginx/nginx.conf
+#done
+
+export CATALOGUE=catalogue.${DNS_DOMAIN_NAME}
+export CART=cart.${DNS_DOMAIN_NAME}
+export USER=user.${DNS_DOMAIN_NAME}
+export SHIPPING=shipping.${DNS_DOMAIN_NAME}
+export PAYMENT=payment.${DNS_DOMAIN_NAME}
+
+sed -i -e "s/CATALOGUE/${CATALOGUE}/" -e "s/CART/${CART}/" -e "s/USER/${USER}/" -e "s/SHIPPING/${SHIPPING}/" -e "s/PAYMENT/${PAYMENT}/" /etc/nginx/nginx.conf
+
 
 Status_Check
 Print "Installing Nginx"
 systemctl enable nginx
-systemctl start nginx
+systemctl restart nginx
 Status_Check
   ;;
 
