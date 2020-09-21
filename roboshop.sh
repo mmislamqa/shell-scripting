@@ -136,9 +136,9 @@ redis)
     yum install redis -y
     Status_Check
     Print "Update Configuration"
-    if [ -e /etc/redis.conf ]; then
+
       sed -i -e '/^bind 127.0.0.1/ c bind 0.0.0.0' /etc/redis.conf
-    fi
+
     Status_Check
     Print "Start Service"
     systemctl enable redis
