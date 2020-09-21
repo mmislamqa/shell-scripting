@@ -122,6 +122,17 @@ user)
   echo Installing user
   Setup_NodeJS "user" "https://dev.azure.com/DevOps-Batches/ce99914a-0f7d-4c46-9ccc-e4d025115ea9/_apis/git/repositories/e911c2cd-340f-4dc6-a688-5368e654397c/items?path=%2F&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=zip&api-version=5.0&download=true"
 ;;
+redis)
+  echo  install redis
+  Print "Install Yum Utils"
+  yum install epel-release yum-utils http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y
+  Status_Check
+  Print "Enable Remi repos"
+  yum-config-manager --enable remi
+  Status_Check
+  Print "Install redis"
+  yum install redis -y
+  Status_Check
 
 mongodb)
  echo '[mongodb-org-4.2]
