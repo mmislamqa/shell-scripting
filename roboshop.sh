@@ -176,7 +176,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mong
   ;;
 *)
   echo "Invalid Input, Please enter following input"
-  echo "Usage: $0 frontend|catalogue|cart|mongodb"
+  echo "Usage: $0 frontend|catalogue|cart|mongodb|redis"
   exit 2
   ;;
 esac
