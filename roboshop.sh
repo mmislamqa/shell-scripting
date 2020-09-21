@@ -124,24 +124,27 @@ user)
   Setup_NodeJS "user" "https://dev.azure.com/DevOps-Batches/ce99914a-0f7d-4c46-9ccc-e4d025115ea9/_apis/git/repositories/e911c2cd-340f-4dc6-a688-5368e654397c/items?path=%2F&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=zip&api-version=5.0&download=true"
 ;;
 redis)
-  echo  install redis
-  Print "Install Yum Utils"
-  yum install epel-release yum-utils http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y
-  Status_Check
-  Print "Enable Remi repos"
-  yum-config-manager --enable remi
-  Status_Check
-  Print "Install redis"
-  yum install redis -y
-  Status_Check
-  Print "Update  Configuration"
-  sed -i -e '/^bind 127.0.0.1/ c bind 0.0.0.0' /etc/redis.conf
-  Status_Check
-  Print "Start Service"
-  systemctl enable redis
-  systemctl start redis
-  Status_Check
-  ;;
+
+    echo Installing Redis
+    Print "Install Yum Utils"
+    yum install epel-release yum-utils http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y
+    Status_Check
+    Print "Enable Remi repos"
+    yum-config-manager --enable remi
+    Status_Check
+    Print "Install Redis"
+    yum install redis -y
+    Status_Check
+    Print "Update Configuration"
+    if [ -e /etc/redis.conf ]; then
+      sed -i -e '/^bind 127.0.0.1/ c bind 0.0.0.0' /etc/redis.conf
+    fi
+    Status_Check
+    Print "Start Service"
+    systemctl enable redis
+    systemctl start redis
+    Status_Check
+;;
 
 mongodb)
  echo '[mongodb-org-4.2]
